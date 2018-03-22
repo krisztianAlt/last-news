@@ -85,3 +85,4 @@ hs_err_pid*
 
 /last-news.iml
 /src/main/resources/application.properties
+/src/main/resources/config.properties
