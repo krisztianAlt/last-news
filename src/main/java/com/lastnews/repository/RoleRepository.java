@@ -1,4 +1,10 @@
 package com.lastnews.repository;
 
-public interface RoleRepository {
+import com.lastnews.model.Role;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface RoleRepository extends JpaRepository<Role, Long> {
+
+    Role findByRole(String role);
+
 }
