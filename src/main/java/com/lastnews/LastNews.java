@@ -7,8 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class LastNews {
 
     public static void main(String[] args) {
-        System.out.println("HI");
         SpringApplication.run(LastNews.class, args);
     }
+
 
 }
