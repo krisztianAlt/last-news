@@ -38,14 +38,15 @@ public class HomeController {
         return "index";
     }
 
-    @RequestMapping("/bloggers")
-    public String bloggers() {
-        return "bloggers";
+    @RequestMapping({"/africa", "/asia", "/australia", "/north-america", "/south-america"})
+    public String underConstruction() {
+        // Image maker: http://dataurl.net/#dataurlmaker
+        return "under-construction";
     }
 
-    @RequestMapping("/stories")
+    @RequestMapping("/europe")
     public String stories() {
-        return "stories";
+        return "europe";
     }
 
     @RequestMapping("/registration")
@@ -54,7 +55,6 @@ public class HomeController {
         return "registration";
     }
 
-    //	@RequestMapping(value = "/reg", method = RequestMethod.POST)
     @PostMapping("/reg")
     public String reg(@ModelAttribute User user) {
         log.info("Uj user!");
