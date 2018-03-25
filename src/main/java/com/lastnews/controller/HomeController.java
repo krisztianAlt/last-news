@@ -58,7 +58,7 @@ public class HomeController {
     @PostMapping("/reg")
     public String reg(@ModelAttribute User user) {
         log.info("Uj user!");
-        userService.registerUser(user);
+        String status = userService.registerUser(user);
         return "auth/login";
     }
 

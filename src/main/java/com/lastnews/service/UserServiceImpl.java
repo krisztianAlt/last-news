@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
@@ -29,6 +30,9 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Autowired
     EmailService emailService;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
     public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository) {
@@ -68,11 +72,15 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         userToRegister.setEnabled(false);
         String key = generateKey();
         userToRegister.setActivation(key);
+
+        // PASSWORD ENCRYPTION
+        userToRegister.setPassword(passwordEncoder.encode(userToRegister.getPassword()));
+
         userRepository.save(userToRegister);
         try {
             emailService.sendMessage(userToRegister, key);
         } catch (MessagingException e){
-            return "email sending error";
+            return "emailSendingError";
         }
 
         return "ok";
