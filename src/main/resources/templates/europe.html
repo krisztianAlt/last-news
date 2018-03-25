@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en"
       layout:decorator="layout/main"
-      xmlns:layout="http://www.w3.org/1999/xhtml">
+      xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Europe | Last News</title>
 
@@ -11,20 +12,7 @@
     <!-- CSSMap SCRIPT -->
     <script type="text/javascript" src="https://cssmapsplugin.com/5/jquery.cssmap.min.js"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function(){
-
-        // CSSMap;
-            $("#map-europe").CSSMap({
-                "size": 650,
-                "tooltips": "floating-top-center",
-                "responsive": "auto",
-                "cities": true
-            });
-        // END OF THE CSSMap;
-
-        });
-    </script>
+    <script th:src="@{/js/europe.js}" defer="defer"></script>
 
 </head>
 <body>
@@ -32,11 +20,12 @@
 <div layout:fragment="content">
 
     <!-- CSSMap - Europe -->
+    <p id="test">TEST IT</p>
     <div id="map-europe">
         <ul class="europe">
-            <li class="eu1"><a href="#albania">Albania</a></li>
+            <li class="eu1"><a data-country-name="albania" data-country-code="al" href="#albania">Albania</a></li>
             <li class="eu2"><a href="#andorra">Andorra</a></li>
-            <li class="eu3"><a href="#austria">Austria</a></li>
+            <li class="eu3"><a data-country-name="austria" data-country-code="at" href="#austria" onclick="console.log('danke')" rel="nofollow">Austria</a></li>
             <li class="eu4"><a href="#belarus">Belarus</a></li>
             <li class="eu5"><a href="#belgium">Belgium</a></li>
             <li class="eu6"><a href="#bosnia-and-herzegovina">Bosnia and Herzegovina</a></li>
