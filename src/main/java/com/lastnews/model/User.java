@@ -95,4 +95,10 @@ public class User {
         return "User datas: id=" + id + ", email=" + email + ", name=" + userName + "]";
     }
 
+    public void addRoles(String roleName) {
+        if (this.roles == null || this.roles.isEmpty())
+            this.roles = new HashSet<>();
+        this.roles.add(new Role(roleName));
+    }
+
 }

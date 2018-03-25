@@ -19,6 +19,12 @@ public class APIController {
     @Autowired
     EmailService emailService;
 
+    // FUNCTIONS FOR TESTING.
+    // IN ORDER TO USAGE, PUT PERMISSIONS INTO SecurityConfig:
+    // .antMatchers("/session-check").permitAll()
+    // .antMatchers("/database-check").permitAll()
+    // .antMatchers("/email-check").permitAll()
+
     @RequestMapping(value = "/session-check", method={RequestMethod.GET, RequestMethod.POST})
     public String sessionData(HttpSession session){
         if (session.getAttribute("user_id") != null){
