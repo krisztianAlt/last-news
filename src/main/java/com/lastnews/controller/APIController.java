@@ -1,23 +1,44 @@
 package com.lastnews.controller;
 
+import com.lastnews.dataFromApi.NewsApi;
 import com.lastnews.model.User;
 import com.lastnews.repository.UserRepository;
 import com.lastnews.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
+import java.util.Map;
+import javax.json.*;
 
 @RestController
 public class APIController {
+
+    private JsonBuilderFactory factory = Json.createBuilderFactory(null);
 
     @Autowired
     UserRepository userRepository;
 
     @Autowired
     EmailService emailService;
+
+    @Autowired
+    NewsApi newsApi;
+
+    @RequestMapping(value = "/api/get-news", method = RequestMethod.GET)
+    public String sendNews(@RequestParam Map<String,String> allRequestParams){
+        String countryName = allRequestParams.get("countryName");
+        String countryCode = allRequestParams.get("countryCode");
+        String news = newsApi.getDataByCountryName(countryName);
+        System.out.println(news);
+        JsonObject answer = factory.createObjectBuilder().add("answer", news).build();
+        return answer.toString();
+    }
+
+
 
     // FUNCTIONS FOR TESTING.
     // IN ORDER TO USAGE, PUT PERMISSIONS INTO SecurityConfig:
