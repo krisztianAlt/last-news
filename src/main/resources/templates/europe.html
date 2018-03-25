@@ -19,58 +19,107 @@
 
     <div layout:fragment="content">
 
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#newsModal">Open Modal</button>
+        <!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#newsModal">Open Modal</button>-->
 
         <!-- CSSMap - Europe -->
         <div id="map-europe">
             <ul class="europe">
-                <li class="eu1"><a data-country-name="albania" data-country-code="al" href="#albania">Albania</a></li>
-                <li class="eu2"><a href="#andorra">Andorra</a></li>
-                <li class="eu3"><a role="button" data-toggle="modal" data-target="#newsModal" data-country-name="austria" data-country-code="at" href="#austria" rel="nofollow">Austria</a></li>
-                <li class="eu4"><a href="#belarus">Belarus</a></li>
-                <li class="eu5"><a href="#belgium">Belgium</a></li>
-                <li class="eu6"><a href="#bosnia-and-herzegovina">Bosnia and Herzegovina</a></li>
-                <li class="eu7"><a href="#bulgaria">Bulgaria</a></li>
-                <li class="eu8"><a href="#croatia">Croatia</a></li>
-                <li class="eu9"><a href="#cyprus">Cyprus</a></li>
-                <li class="eu10"><a href="#czech-republic">Czech Republic</a></li>
-                <li class="eu11"><a href="#denmark">Denmark</a></li>
-                <li class="eu12"><a href="#estonia">Estonia</a></li>
-                <li class="eu13"><a href="#france">France</a></li>
-                <li class="eu14"><a href="#finland">Finland</a></li>
-                <li class="eu15"><a href="#georgia">Georgia</a></li>
-                <li class="eu16"><a href="#germany">Germany</a></li>
-                <li class="eu17"><a href="#greece">Greece</a></li>
-                <li class="eu18"><a href="#hungary">Hungary</a></li>
-                <li class="eu19"><a href="#iceland">Iceland</a></li>
-                <li class="eu20"><a href="#ireland">Ireland</a></li>
-                <li class="eu21"><a href="#san-marino">San Marino</a></li>
-                <li class="eu22"><a href="#italy">Italy</a></li>
-                <li class="eu23"><a href="#kosovo">Kosovo</a></li>
-                <li class="eu24"><a href="#latvia">Latvia</a></li>
-                <li class="eu25"><a href="#liechtenstein">Liechtenstein</a></li>
-                <li class="eu26"><a href="#lithuania">Lithuania</a></li>
-                <li class="eu27"><a href="#luxembourg">Luxembourg</a></li>
-                <li class="eu28"><a href="#macedonia">Macedonia <abbr title="The Former Yugoslav Republic of Macedonia">(F.Y.R.O.M.)</abbr></a></li>
-                <li class="eu29"><a href="#malta">Malta</a></li>
-                <li class="eu30"><a href="#moldova">Moldova</a></li>
-                <li class="eu31"><a href="#monaco">Monaco</a></li>
-                <li class="eu32"><a href="#montenegro">Montenegro</a></li>
-                <li class="eu33"><a href="#netherlands">Netherlands</a></li>
-                <li class="eu34"><a href="#norway">Norway</a></li>
-                <li class="eu35"><a href="#poland">Poland</a></li>
-                <li class="eu36"><a href="#portugal">Portugal</a></li>
-                <li class="eu37"><a href="#romania">Romania</a></li>
-                <li class="eu38"><a href="#russian-federation">Russian Federation</a></li>
-                <li class="eu39"><a href="#serbia">Serbia</a></li>
-                <li class="eu40"><a href="#slovakia">Slovakia</a></li>
-                <li class="eu41"><a href="#slovenia">Slovenia</a></li>
-                <li class="eu42"><a href="#spain">Spain</a></li>
-                <li class="eu43"><a href="#sweden">Sweden</a></li>
-                <li class="eu44"><a href="#switzerland">Switzerland</a></li>
-                <li class="eu45"><a href="#turkey">Turkey</a></li>
-                <li class="eu46"><a href="#ukraine">Ukraine</a></li>
-                <li class="eu47"><a href="#united-kingdom">United Kingdom</a></li>
+                <li class="eu1"><a data-country-name="albania" data-country-code="al" href="#albania" rel="nofollow">Albania</a></li>
+                <li class="eu2"><a data-country-name="andorra" data-country-code="ad" href="#andorra" rel="nofollow">Andorra</a></li>
+                <li class="eu3"><a data-country-name="austria" data-country-code="at" href="#austria" rel="nofollow">Austria</a></li>
+                <li class="eu4"><a data-country-name="belarus" data-country-code="by" href="#belarus" rel="nofollow">Belarus</a></li>
+                <li class="eu5"><a data-country-name="belgium" data-country-code="be" href="#belgium" rel="nofollow">Belgium</a></li>
+                <li class="eu6"><a data-country-name="bosnia-and-herzegovina" data-country-code="ba" href="#bosnia-and-herzegovina" rel="nofollow">Bosnia and Herzegovina</a></li>
+                <li class="eu7"><a data-country-name="bulgaria" data-country-code="al" href="#bulgaria" rel="nofollow">Bulgaria</a></li>
+                <li class="eu8"><a data-country-name="croatia" data-country-code="al" href="#croatia" rel="nofollow">Croatia</a></li>
+                <li class="eu9"><a data-country-name="cyprus" data-country-code="al" href="#cyprus" rel="nofollow">Cyprus</a></li>
+                <li class="eu10"><a data-country-name="czech-republic" data-country-code="al" href="#czech-republic" rel="nofollow">Czech Republic</a></li>
+                <li class="eu11"><a href="#denmark" rel="nofollow">Denmark</a></li>
+                <li class="eu12"><a href="#estonia" rel="nofollow">Estonia</a></li>
+                <li class="eu13"><a href="#france" rel="nofollow">France</a></li>
+                <li class="eu14"><a href="#finland" rel="nofollow">Finland</a></li>
+                <li class="eu15"><a href="#georgia" rel="nofollow">Georgia</a></li>
+                <li class="eu16"><a href="#germany" rel="nofollow">Germany</a></li>
+                <li class="eu17"><a href="#greece" rel="nofollow">Greece</a></li>
+                <li class="eu18"><a href="#hungary" rel="nofollow">Hungary</a></li>
+                <li class="eu19"><a href="#iceland" rel="nofollow">Iceland</a></li>
+                <li class="eu20"><a href="#ireland" rel="nofollow">Ireland</a></li>
+                <li class="eu21"><a href="#san-marino" rel="nofollow">San Marino</a></li>
+                <li class="eu22"><a href="#italy" rel="nofollow">Italy</a></li>
+                <li class="eu23"><a href="#kosovo" rel="nofollow">Kosovo</a></li>
+                <li class="eu24"><a href="#latvia" rel="nofollow">Latvia</a></li>
+                <li class="eu25"><a href="#liechtenstein" rel="nofollow">Liechtenstein</a></li>
+                <li class="eu26"><a href="#lithuania" rel="nofollow">Lithuania</a></li>
+                <li class="eu27"><a href="#luxembourg" rel="nofollow">Luxembourg</a></li>
+                <li class="eu28"><a href="#macedonia" rel="nofollow">Macedonia <abbr title="The Former Yugoslav Republic of Macedonia">(F.Y.R.O.M.)</abbr></a></li>
+                <li class="eu29"><a href="#malta" rel="nofollow">Malta</a></li>
+                <li class="eu30"><a href="#moldova" rel="nofollow">Moldova</a></li>
+                <li class="eu31"><a href="#monaco" rel="nofollow">Monaco</a></li>
+                <li class="eu32"><a href="#montenegro" rel="nofollow">Montenegro</a></li>
+                <li class="eu33"><a href="#netherlands" rel="nofollow">Netherlands</a></li>
+                <li class="eu34"><a href="#norway" rel="nofollow">Norway</a></li>
+                <li class="eu35"><a href="#poland" rel="nofollow">Poland</a></li>
+                <li class="eu36"><a href="#portugal" rel="nofollow">Portugal</a></li>
+                <li class="eu37"><a href="#romania" rel="nofollow">Romania</a></li>
+                <li class="eu38"><a href="#russian-federation" rel="nofollow">Russian Federation</a></li>
+                <li class="eu39"><a href="#serbia" rel="nofollow">Serbia</a></li>
+                <li class="eu40"><a href="#slovakia" rel="nofollow">Slovakia</a></li>
+                <li class="eu41"><a href="#slovenia" rel="nofollow">Slovenia</a></li>
+                <li class="eu42"><a href="#spain" rel="nofollow">Spain</a></li>
+                <li class="eu43"><a href="#sweden" rel="nofollow">Sweden</a></li>
+                <li class="eu44"><a href="#switzerland" rel="nofollow">Switzerland</a></li>
+                <li class="eu45"><a href="#turkey" rel="nofollow">Turkey</a></li>
+                <li class="eu46"><a href="#ukraine" rel="nofollow">Ukraine</a></li>
+                <li class="eu47"><a href="#united-kingdom" rel="nofollow">United Kingdom</a></li>
+
+
+                <!--<li class="eu1"><a data-country-name="albania" data-country-code="al" href="#albania" rel="nofollow">Albania</a></li>
+                <li class="eu2"><a data-country-name="andorra" data-country-code="ad" href="#andorra" rel="nofollow">Andorra</a></li>
+                <li class="eu3"><a data-country-name="austria" data-country-code="at" href="#austria" rel="nofollow">Austria</a></li>
+                <li class="eu4"><a data-country-name="belarus" data-country-code="by" href="#belarus" rel="nofollow">Belarus</a></li>
+                <li class="eu5"><a data-country-name="belgium" data-country-code="be" href="#belgium" rel="nofollow">Belgium</a></li>
+                <li class="eu6"><a data-country-name="bosnia-and-herzegovina" data-country-code="ba" href="#bosnia-and-herzegovina" rel="nofollow">Bosnia and Herzegovina</a></li>
+                <li class="eu7"><a data-country-name="bulgaria" data-country-code="bg" href="#bulgaria" rel="nofollow">Bulgaria</a></li>
+                <li class="eu8"><a data-country-name="albania" data-country-code="al" href="#croatia" rel="nofollow">Croatia</a></li>
+                <li class="eu9"><a data-country-name="albania" data-country-code="al" href="#cyprus" rel="nofollow">Cyprus</a></li>
+                <li class="eu10"><a data-country-name="albania" data-country-code="al" href="#czech-republic" rel="nofollow">Czech Republic</a></li>
+                <li class="eu11"><a data-country-name="albania" data-country-code="al" href="#denmark" rel="nofollow">Denmark</a></li>
+                <li class="eu12"><a data-country-name="albania" data-country-code="al" href="#estonia" rel="nofollow">Estonia</a></li>
+                <li class="eu13"><a data-country-name="albania" data-country-code="al" href="#france" rel="nofollow">France</a></li>
+                <li class="eu14"><a data-country-name="albania" data-country-code="al" href="#finland" rel="nofollow">Finland</a></li>
+                <li class="eu15"><a data-country-name="albania" data-country-code="al" href="#georgia" rel="nofollow">Georgia</a></li>
+                <li class="eu16"><a data-country-name="albania" data-country-code="al" href="#germany" rel="nofollow">Germany</a></li>
+                <li class="eu17"><a data-country-name="albania" data-country-code="al" href="#greece" rel="nofollow">Greece</a></li>
+                <li class="eu18"><a data-country-name="albania" data-country-code="al" href="#hungary" rel="nofollow">Hungary</a></li>
+                <li class="eu19"><a data-country-name="albania" data-country-code="al" href="#iceland" rel="nofollow">Iceland</a></li>
+                <li class="eu20"><a data-country-name="albania" data-country-code="al" href="#ireland" rel="nofollow">Ireland</a></li>
+                <li class="eu21"><a data-country-name="albania" data-country-code="al" href="#san-marino" rel="nofollow">San Marino</a></li>
+                <li class="eu22"><a data-country-name="albania" data-country-code="al" href="#italy" rel="nofollow">Italy</a></li>
+                <li class="eu23"><a data-country-name="albania" data-country-code="al" href="#kosovo" rel="nofollow">Kosovo</a></li>
+                <li class="eu24"><a data-country-name="albania" data-country-code="al" href="#latvia" rel="nofollow">Latvia</a></li>
+                <li class="eu25"><a data-country-name="albania" data-country-code="al" href="#liechtenstein" rel="nofollow">Liechtenstein</a></li>
+                <li class="eu26"><a data-country-name="albania" data-country-code="al" href="#lithuania" rel="nofollow">Lithuania</a></li>
+                <li class="eu27"><a data-country-name="albania" data-country-code="al" href="#luxembourg" rel="nofollow">Luxembourg</a></li>
+                <li class="eu28"><a data-country-name="albania" data-country-code="al" href="#macedonia" rel="nofollow">Macedonia <abbr title="The Former Yugoslav Republic of Macedonia">(F.Y.R.O.M.)</abbr></a></li>
+                <li class="eu29"><a data-country-name="albania" data-country-code="al" href="#malta" rel="nofollow">Malta</a></li>
+                <li class="eu30"><a data-country-name="albania" data-country-code="al" href="#moldova" rel="nofollow">Moldova</a></li>
+                <li class="eu31"><a data-country-name="albania" data-country-code="al" href="#monaco" rel="nofollow">Monaco</a></li>
+                <li class="eu32"><a data-country-name="albania" data-country-code="al" href="#montenegro" rel="nofollow">Montenegro</a></li>
+                <li class="eu33"><a data-country-name="albania" data-country-code="al" href="#netherlands" rel="nofollow">Netherlands</a></li>
+                <li class="eu34"><a data-country-name="albania" data-country-code="al" href="#norway" rel="nofollow">Norway</a></li>
+                <li class="eu35"><a data-country-name="albania" data-country-code="al" href="#poland" rel="nofollow">Poland</a></li>
+                <li class="eu36"><a data-country-name="albania" data-country-code="al" href="#portugal" rel="nofollow">Portugal</a></li>
+                <li class="eu37"><a data-country-name="albania" data-country-code="al" href="#romania" rel="nofollow">Romania</a></li>
+                <li class="eu38"><a data-country-name="albania" data-country-code="al" href="#russian-federation" rel="nofollow">Russian Federation</a></li>
+                <li class="eu39"><a data-country-name="albania" data-country-code="al" href="#serbia" rel="nofollow">Serbia</a></li>
+                <li class="eu40"><a data-country-name="albania" data-country-code="al" href="#slovakia" rel="nofollow">Slovakia</a></li>
+                <li class="eu41"><a data-country-name="albania" data-country-code="al" href="#slovenia" rel="nofollow">Slovenia</a></li>
+                <li class="eu42"><a data-country-name="albania" data-country-code="al" href="#spain" rel="nofollow">Spain</a></li>
+                <li class="eu43"><a data-country-name="albania" data-country-code="al" href="#sweden" rel="nofollow">Sweden</a></li>
+                <li class="eu44"><a data-country-name="albania" data-country-code="al" href="#switzerland" rel="nofollow">Switzerland</a></li>
+                <li class="eu45"><a data-country-name="albania" data-country-code="al" href="#turkey" rel="nofollow">Turkey</a></li>
+                <li class="eu46"><a data-country-name="albania" data-country-code="al" href="#ukraine" rel="nofollow">Ukraine</a></li>
+                <li class="eu47"><a data-country-name="albania" data-country-code="al" href="#united-kingdom" rel="nofollow">United Kingdom</a></li>-->
                 <!--
                   <li class="eu48"><a href="#england">England</a></li>
                   <li class="eu49"><a href="#isle-of-man">Isle of Man</a></li>

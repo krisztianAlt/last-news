@@ -2,6 +2,7 @@ var app = app || {};
 
 app.init = function () {
     app.europeMap.showMap();
+    app.europeMap.openModal();
 };
 
 app.europeMap = {
@@ -16,8 +17,9 @@ app.europeMap = {
             onClick: function(e){
                 var link = e.children("A").eq(0).attr("href"),
                     text = e.children("A").eq(0).text(),
-                    countryCode = e.children("A").eq(0).attr("data-country-code"),
-                    countryName = e.children("A").eq(0).attr("data-country-name");
+                    countryCode = e.children("A").eq(0).attr("data-country-code");
+                var countryName = link.substr(1);
+                $('#newsModal').modal('toggle');
                 app.europeMap.getDataFromApi(countryName, countryCode);
             }
         });
@@ -44,7 +46,8 @@ app.europeMap = {
     listNews: function (news, countryName) {
         console.log(countryName);
         var modalTitle = document.getElementById("newsModalLabel");
-        modalTitle.textContent = "News about " + countryName;
+        countryName.charAt(0).toUpperCase();
+        modalTitle.textContent = "News about " + countryName.charAt(0).toUpperCase() + countryName.substr(1);
 
         // delete previous news table content:
         var deleteNewsRows = document.getElementsByClassName('news-table-row');
@@ -77,7 +80,7 @@ app.europeMap = {
             anchor.href = news[newsIndex].url;
             link.appendChild(anchor);
 
-            // todo: add picture
+            // todo: add date and picture
 
             newRow.appendChild(title);
             newRow.appendChild(author);
@@ -85,6 +88,25 @@ app.europeMap = {
 
             newsTable.appendChild(newRow);
         }
+    },
+
+    openModal: function () {
+        var anchorButtons = document.getElementsByClassName('anchorButton');
+        for (buttonIndex = 0; buttonIndex < anchorButtons.length; buttonIndex++){
+            anchorButtons[buttonIndex].addEventListener('click', function (e) {
+                console.log("HI");
+                e.preventDefault();
+                var href = jQuery(this).attr('href');
+                jQuery(href).modal('toggle');
+            })
+        }
+
+        jQuery('.anchorButton').click(function(e){
+            console.log("HI");
+            e.preventDefault();
+            var href = jQuery(this).attr('href');
+            jQuery(href).modal('toggle');
+        });
     }
 
 };
