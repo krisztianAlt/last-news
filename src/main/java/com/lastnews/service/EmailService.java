@@ -9,12 +9,9 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
-import org.thymeleaf.context.WebContext;
 import org.thymeleaf.templateresolver.FileTemplateResolver;
-import org.thymeleaf.context.IWebContext;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
-import javax.servlet.http.HttpServletRequest;
 
 @Service
 public class EmailService {
