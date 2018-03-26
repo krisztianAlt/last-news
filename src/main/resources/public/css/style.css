@@ -66,3 +66,8 @@ address {
     max-width: 150px;
     padding: 5px;
 }
+
+#main-title {
+    font-family: cursive;
+    color: brown;
+}
