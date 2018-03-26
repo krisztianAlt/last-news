@@ -28,7 +28,7 @@ public class APIController {
     @Autowired
     NewsApi newsApi;
 
-    @RequestMapping(value = "/api/get-news", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/get-news", method = RequestMethod.POST)
     public String sendNews(@RequestParam Map<String,String> allRequestParams){
         String countryName = allRequestParams.get("countryName");
         String countryCode = allRequestParams.get("countryCode");
