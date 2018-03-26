@@ -61,3 +61,8 @@ address {
 .fade {
     opacity: 100!important;
 }
+
+.image-in-modal {
+    max-width: 150px;
+    padding: 5px;
+}

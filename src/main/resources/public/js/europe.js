@@ -29,7 +29,7 @@ app.europeMap = {
         var dataPackage = {'countryName': countryName, 'countryCode': countryCode};
         $.ajax({
             url: '/api/get-news',
-            method: 'GET',
+            method: 'POST',
             data: dataPackage,
             dataType: 'json',
             success: function(response) {
@@ -44,18 +44,18 @@ app.europeMap = {
     },
 
     listNews: function (news, countryName) {
-        console.log(countryName);
+
         var modalTitle = document.getElementById("newsModalLabel");
         countryName.charAt(0).toUpperCase();
         modalTitle.textContent = "News about " + countryName.charAt(0).toUpperCase() + countryName.substr(1);
 
-        // delete previous news table content:
+        // delete previous news-table content in the modal:
         var deleteNewsRows = document.getElementsByClassName('news-table-row');
         while (deleteNewsRows.length > 0) {
             deleteNewsRows[0].remove();
         }
 
-        // put data into the modal:
+        // put data into the table row by row:
         var newsTable = document.getElementById('news-table-body');
         for (newsIndex = 0; newsIndex < news.length; newsIndex++) {
 
@@ -80,11 +80,20 @@ app.europeMap = {
             anchor.href = news[newsIndex].url;
             link.appendChild(anchor);
 
-            // todo: add date and picture
+            var date = document.createElement('td');
+            var dateWithoutTime = news[newsIndex].publishedAt.substr(0, 10);
+            var dateText = document.createTextNode(dateWithoutTime);
+            date.appendChild(dateText);
+
+            var image = document.createElement('img');
+            image.setAttribute('class', 'image-in-modal');
+            image.setAttribute('src', news[newsIndex].urlToImage);
 
             newRow.appendChild(title);
             newRow.appendChild(author);
             newRow.appendChild(link);
+            newRow.appendChild(date);
+            newRow.appendChild(image);
 
             newsTable.appendChild(newRow);
         }
@@ -93,19 +102,17 @@ app.europeMap = {
     openModal: function () {
         var anchorButtons = document.getElementsByClassName('anchorButton');
         for (buttonIndex = 0; buttonIndex < anchorButtons.length; buttonIndex++){
-            anchorButtons[buttonIndex].addEventListener('click', function (e) {
-                console.log("HI");
-                e.preventDefault();
+            anchorButtons[buttonIndex].addEventListener('click', function (event) {
+                event.preventDefault();
                 var href = jQuery(this).attr('href');
-                jQuery(href).modal('toggle');
+                $(href).modal('toggle');
             })
         }
 
-        jQuery('.anchorButton').click(function(e){
-            console.log("HI");
+        $('.anchorButton').click(function(e){
             e.preventDefault();
-            var href = jQuery(this).attr('href');
-            jQuery(href).modal('toggle');
+            var href = $(this).attr('href');
+            $(href).modal('toggle');
         });
     }
 

@@ -34,7 +34,7 @@ public class HomeController {
 
     @RequestMapping("/")
     public String home(HttpSession session) {
-        String userId = (String) session.getAttribute("user_id");
+        Long userId = (Long) session.getAttribute("user_id");
         return "index";
     }
 
