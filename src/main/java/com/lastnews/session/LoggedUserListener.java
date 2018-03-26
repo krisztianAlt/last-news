@@ -20,7 +20,6 @@ public class LoggedUserListener implements
     public void onApplicationEvent(AuthenticationSuccessEvent event) {
         UserDetailsImpl userDetails = (UserDetailsImpl) event.getAuthentication().getPrincipal();
         session.setAttribute("user_id", userDetails.getId());
-        System.out.println("User id added successfully to session.");
     }
 
 }

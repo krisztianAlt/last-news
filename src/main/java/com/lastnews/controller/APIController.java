@@ -33,7 +33,6 @@ public class APIController {
         String countryName = allRequestParams.get("countryName");
         String countryCode = allRequestParams.get("countryCode");
         String news = newsApi.getDataByCountryName(countryName);
-        System.out.println(news);
         JsonObject answer = factory.createObjectBuilder().add("answer", news).build();
         return answer.toString();
     }
