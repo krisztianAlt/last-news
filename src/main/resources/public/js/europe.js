@@ -45,6 +45,15 @@ app.europeMap = {
 
     listNews: function (news, countryName) {
 
+        // sorting news by date, descending:
+        news.sort(function(a, b){
+            var x = a.publishedAt;
+            var y = b.publishedAt;
+            if (x > y) {return -1;}
+            if (x < y) {return 1;}
+            return 0;
+        });
+
         var modalTitle = document.getElementById("newsModalLabel");
         countryName.charAt(0).toUpperCase();
         modalTitle.textContent = "News about " + countryName.charAt(0).toUpperCase() + countryName.substr(1);

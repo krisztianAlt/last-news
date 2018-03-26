@@ -23,7 +23,7 @@ public class NewsApi {
         String API_KEY = getValuesFromConfigFile.getPropValue("newsapi-key");
         String endpoint = "https://newsapi.org/v2/everything?q=" +
                 countryName +
-                "&sources=reuters&sortBy=publishedAt&apiKey=" +
+                "&sources=reuters&sortBy=relevancy&apiKey=" +
                 API_KEY;
 
         String answer = "";
