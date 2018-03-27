@@ -2,7 +2,6 @@ var app = app || {};
 
 app.init = function () {
     app.europeMap.showMap();
-    app.europeMap.openModal();
 };
 
 app.europeMap = {
@@ -107,23 +106,6 @@ app.europeMap = {
 
             newsTable.appendChild(newRow);
         }
-    },
-
-    openModal: function () {
-        var anchorButtons = document.getElementsByClassName('anchorButton');
-        for (buttonIndex = 0; buttonIndex < anchorButtons.length; buttonIndex++){
-            anchorButtons[buttonIndex].addEventListener('click', function (event) {
-                event.preventDefault();
-                var href = jQuery(this).attr('href');
-                $(href).modal('toggle');
-            })
-        }
-
-        $('.anchorButton').click(function(e){
-            e.preventDefault();
-            var href = $(this).attr('href');
-            $(href).modal('toggle');
-        });
     }
 
 };
