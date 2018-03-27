@@ -5,10 +5,9 @@ import com.lastnews.model.User;
 import com.lastnews.repository.UserRepository;
 import com.lastnews.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.boot.json.JsonParser;
+import org.springframework.boot.json.JsonParserFactory;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.Map;
@@ -17,7 +16,11 @@ import javax.json.*;
 @RestController
 public class APIController {
 
-    private JsonBuilderFactory factory = Json.createBuilderFactory(null);
+    // JsonBuilder from javax.json:
+    private JsonObjectBuilder objectBuilder = Json.createBuilderFactory(null).createObjectBuilder();
+
+    // JsonParser from org.springframework.boot.json:
+    private JsonParser jsonParser = JsonParserFactory.getJsonParser();
 
     @Autowired
     UserRepository userRepository;
@@ -28,16 +31,26 @@ public class APIController {
     @Autowired
     NewsApi newsApi;
 
+    // if JavaScript code sends jsonified map object:
+    @RequestMapping(value = "/api/get-news", method = RequestMethod.POST)
+    public String sendNews(@RequestBody String dataPackage){
+        Map<String, Object> result = jsonParser.parseMap(dataPackage);
+        String countryName = (String) result.get("countryName");
+        String countryCode = (String) result.get("countryCode");
+        String news = newsApi.getDataByCountryName(countryName);
+        JsonObject answer = objectBuilder.add("answer", news).build();
+        return answer.toString();
+    }
+
+    /*// if JavaScript code sends map:
     @RequestMapping(value = "/api/get-news", method = RequestMethod.POST)
     public String sendNews(@RequestParam Map<String,String> allRequestParams){
         String countryName = allRequestParams.get("countryName");
         String countryCode = allRequestParams.get("countryCode");
         String news = newsApi.getDataByCountryName(countryName);
-        JsonObject answer = factory.createObjectBuilder().add("answer", news).build();
+        JsonObject answer = objectBuilder.add("answer", news).build();
         return answer.toString();
-    }
-
-
+    }*/
 
     // FUNCTIONS FOR TESTING.
     // IN ORDER TO USAGE, PUT PERMISSIONS INTO SecurityConfig:
@@ -75,4 +88,5 @@ public class APIController {
         }
         return "Error during email sending process.";
     }
+
 }

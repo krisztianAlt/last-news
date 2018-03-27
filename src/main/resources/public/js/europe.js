@@ -30,7 +30,8 @@ app.europeMap = {
         $.ajax({
             url: '/api/get-news',
             method: 'POST',
-            data: dataPackage,
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(dataPackage),
             dataType: 'json',
             success: function(response) {
                 var package = JSON.parse(response.answer);
