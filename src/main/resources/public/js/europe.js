@@ -113,3 +113,7 @@ app.europeMap = {
 $(document).ready(function(){
     app.init();
 });
+
+/*
+// without JQuery:
+document.addEventListener('DOMContentLoaded', app.init());*/
